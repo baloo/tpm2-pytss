@@ -204,7 +204,7 @@ class type_generator(build_ext):
             if policy_header_path:
                 pdata = preprocess_file(
                     policy_header_path,
-                    cpp_args=["-D__extension__=", "-D__attribute__(x)="],
+                    cpp_args=["-D_FORTIFY_SOURCE=0", "-D__extension__=", "-D__attribute__(x)="],
                 )
                 parser = c_parser.CParser()
                 past = parser.parse(pdata, "tss2_policy.h")
